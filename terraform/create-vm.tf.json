@@ -19,7 +19,7 @@
             "network": "${google_compute_network.test-network.name}"
           }
         ],
-        "zone": "us-central1-b"
+        "zone": "${var.zone}"
       }
     }
   }

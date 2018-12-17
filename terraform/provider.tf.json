@@ -3,8 +3,8 @@
     "google": {
       "__DEFAULT__": {
         "credentials": "../service_account.json",
-        "project": "learn-internal",
-        "region": "us-central1"
+        "project": "${var.learn-internal}",
+        "region": "${var.region}"
       }
     }
   }
