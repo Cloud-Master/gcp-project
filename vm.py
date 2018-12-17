@@ -11,8 +11,8 @@ ts.add(
             boot_disk=[{'initialize_params':[{'image':'debian-cloud/debian-9'}]}], 
             network_interface=[{'network': nw.name, 'access_config':{} }],
             machine_type='n1-standard-1', 
-            zone=var_zone))
+            zone=zone))
 
-file = open("./terraform/create-vm.tf.json", "w")
+file = open("./terraform/vm.tf.json", "w")
 file.write(ts.dump())
 file.close()

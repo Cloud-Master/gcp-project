@@ -9,6 +9,6 @@ nw = ts.add(
                 auto_create_subnetworks = True))
 #print(nw.name)
 
-file = open("./terraform/create-nw.tf.json", "w")
+file = open("./terraform/nw.tf.json", "w")
 file.write(ts.dump())
 file.close()
