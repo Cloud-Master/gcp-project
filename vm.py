@@ -12,7 +12,8 @@ ts.add(
             name='test-pavan-tft', 
             boot_disk=[{'initialize_params':[{'image':'debian-cloud/debian-9'}]}], 
             network_interface=[{'subnetwork': snw.self_link, 'access_config':{} }],
-            machine_type='n1-standard-1', 
+            machine_type='n1-standard-1',
+            tags = ['test-http', 'test-ssh'],
             zone=zone,
             metadata_startup_script = '#!/bin/bash\napt-get update -y\napt-get install nginx -y\nservice nginx start'
         ))
