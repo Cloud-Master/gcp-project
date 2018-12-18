@@ -22,7 +22,7 @@ snw = ts.add(
 
 firewall80 = ts.add(
     google_compute_firewall(
-        'test-firewall',
+        'test-firewall-80',
         name = 'test-pavan-80',
         network = nw.name,
         allow = [{'protocol': 'tcp', 'ports':[{'80', '443'}]}],
@@ -33,15 +33,16 @@ firewall80 = ts.add(
 
 firewall22 = ts.add(
     google_compute_firewall(
-        'test-firewall',
+        'test-firewall-22',
         name = 'test-pavan-22',
         network = nw.name,
-        allow = [{'protocol': 'ssh', 'ports':[{'22'}]}],
+        allow = [{'protocol': 'tcp', 'ports':['22']}],
         source_ranges = ['0.0.0.0/0'],
         target_tags = ['test-ssh']
     )
 )
 #print(nw.name)
+print(ts.dump())
 
 file = open("./terraform/nw.tf.json", "w")
 file.write(ts.dump())
