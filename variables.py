@@ -22,7 +22,7 @@ ts += variable('region')
 ts += variable('zone')
 
 
-ts += data('start_up', name = "startup_script", template = "${file(./files/start_up.sh)}")
+# ts += data('start_up', name = "startup_script", template = "${file(./files/start_up.sh)}")
 
 #aws_amis = variable('aws_amis', default={'us-east-1': 'ami-5f709f34', 'us-west-2': 'ami-7f675e4f'})
 
