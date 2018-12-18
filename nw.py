@@ -14,7 +14,7 @@ snw = ts.add(
     google_compute_subnetwork(
         'test-snw',
         name = 'test-pavan-snw',
-        ip_cidr_range = '13.5.0.0/16',
+        ip_cidr_range = '10.5.0.0/16',
         region = region,
         network = nw.name
     )

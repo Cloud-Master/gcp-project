@@ -9,9 +9,10 @@ ts.add(
             'test-vm', 
             name='test-pavan-tft', 
             boot_disk=[{'initialize_params':[{'image':'debian-cloud/debian-9'}]}], 
-            network_interface=[{'network': nw.name, 'access_config':{} }],
+            network_interface=[{'network': nw.name, 'subnetwork': snw.name, 'access_config':{} }],
             machine_type='n1-standard-1', 
-            zone=zone))
+            zone=zone
+        ))
 
 file = open("./terraform/vm.tf.json", "w")
 file.write(ts.dump())
