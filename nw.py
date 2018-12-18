@@ -25,7 +25,7 @@ firewall80 = ts.add(
         'test-firewall-80',
         name = 'test-pavan-80',
         network = nw.name,
-        allow = [{'protocol': 'tcp', 'ports':[{'80', '443'}]}],
+        allow = [{'protocol': 'tcp', 'ports':['80', '443']}],
         source_ranges = ['0.0.0.0/0'],
         target_tags = ['test-http']
     )

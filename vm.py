@@ -6,7 +6,7 @@ from variables import *
 ts = Terrascript()
 # metadata_startup_script = '${data.start_up.startup_script.rendered}'
 
-ts.add(
+inst = ts.add(
         google_compute_instance(
             'test-vm', 
             name='test-pavan-tft', 
