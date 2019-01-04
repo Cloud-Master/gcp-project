@@ -1,0 +1,48 @@
+{
+  "provider": {
+    "google": {
+      "__DEFAULT__": {
+        "credentials": "../service_account_gke.json",
+        "project": "learn-internal",
+        "region": "asia-south1"
+      }
+    }
+  },
+  "resource": {
+    "google_compute_network": {
+      "test-network": {
+        "auto_create_subnetworks": false,
+        "name": "test-gke-nw",
+        "routing_mode": "GLOBAL"
+      }
+    },
+    "google_compute_subnetwork": {
+      "test-snw": {
+        "ip_cidr_range": "10.5.0.0/16",
+        "name": "test-gke-snw",
+        "network": "${google_compute_network.test-network.name}",
+        "region": "asia-south1"
+      }
+    },
+    "google_container_cluster": {
+      "primary": {
+        "additional_zones": [
+          "asia-south1-b",
+          "asia-south1-c"
+        ],
+        "cluster_ipv4_cidr": "172.16.0.0/16",
+        "initial_node_count": "2",
+        "master_auth": [
+          {
+            "password": "test123456789012",
+            "username": "test"
+          }
+        ],
+        "name": "my-cluster",
+        "network": "${google_compute_network.test-network.name}",
+        "subnetwork": "${google_compute_subnetwork.test-snw.name}",
+        "zone": "asia-south1-a"
+      }
+    }
+  }
+}
